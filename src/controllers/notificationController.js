@@ -37,13 +37,18 @@ const createNotification = async (req, res) => {
   const { userId, message } = req.body;
 
   try {
-    const notification = new Notification({ userId, message });
-    await notification.save();
+    if(userId == req.user.id) {
+      const notification = new Notification({ userId, message });
+      await notification.save();
 
-    // Push the notification to the queue
-    channel.sendToQueue('notifications', Buffer.from(JSON.stringify(notification)), { persistent: true });
+      // Push the notification to the queue
+      channel.sendToQueue('notifications', Buffer.from(JSON.stringify(notification)), { persistent: true });
 
-    res.status(201).json(notification);
+      res.status(201).json(notification);
+    }
+    else {
+      res.status(401).json({ message: 'UserId does not match.' });
+    }
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
   }
