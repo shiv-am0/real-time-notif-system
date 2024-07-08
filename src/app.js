@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const { json, urlencoded } = express;
 
 const app = express();
@@ -8,6 +9,9 @@ const app = express();
 // Middleware
 app.use(json());
 app.use(urlencoded({ extended: true }));
+
+// Serve static files
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Database connection
 mongoose.connect(process.env.MONGODB_URI)
@@ -19,7 +23,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notifications', require('./routes/notifications'));
 
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 module.exports = app;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WebSocket Notifications</title>
+</head>
+
+<body>
+  <h1>WebSocket Notifications</h1>
+  <ul id="notifications"></ul>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('connect', () => {
+      console.log('Connected to WebSocket server');
+    });
+
+    socket.on('notification', (notification) => {
+      console.log('Received notification:', notification);
+      const li = document.createElement('li');
+      li.textContent = notification.message;
+      document.getElementById('notifications').appendChild(li);
+    });
+
+    socket.on('disconnect', () => {
+      console.log('Disconnected from WebSocket server');
+    });
+
+    socket.on('connect_error', (err) => {
+      console.error('Connection error:', err);
+    });
+
+    socket.on('error', (err) => {
+      console.error('Socket error:', err);
+    });
+  </script>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 const amqp = require('amqplib/callback_api');
-const Notification = require('../models/notification');
+const { io } = require('../server');
 
 amqp.connect(process.env.RABBITMQ_URI, (err, conn) => {
   if (err) {
@@ -21,8 +21,11 @@ amqp.connect(process.env.RABBITMQ_URI, (err, conn) => {
         const notification = JSON.parse(msg.content.toString());
 
         try {
-          // Here you would process the notification
+          // Process the notification
           console.log('Processing notification:', notification);
+
+          // Broadcast notification to connected users
+          io.emit('notification', notification);
 
           // Acknowledge the message as processed
           channel.ack(msg);
