@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js",
-    "consumer": "node src/services/notificationConsumer.js"
+    "start": "node src/server.js"
   },
   "author": "Shivam Srivastava",
   "license": "MIT",

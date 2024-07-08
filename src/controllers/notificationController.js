@@ -2,22 +2,6 @@ const amqp = require('amqplib/callback_api');
 const Notification = require('../models/notification');
 const User = require('../models/user');
 
-// const createNotification = async (req, res) => {
-//   const { userId, message } = req.body;
-
-//   try {
-//     const notification = new Notification({ userId, message });
-//     await notification.save();
-
-//     // Here, you would also push the notification to the message queue
-//     // For now, we'll skip that step
-
-//     res.status(201).json(notification);
-//   } catch (err) {
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// };
-
 // Connect to RabbitMQ server
 let channel = null;
 amqp.connect(process.env.RABBITMQ_URI, (err, conn) => {

@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3000;
 
 const server = http.createServer(app);
 const io = new Server(server);
-// const io = socketIo(server);
 
 // Handle WebSocket connections
 io.on('connection', (socket) => {
