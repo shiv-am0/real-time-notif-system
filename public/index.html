@@ -11,7 +11,7 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script>
-    const socket = io('http://localhost:3001');
+    const socket = io();
 
     socket.on('connect', () => {
       console.log('Connected to WebSocket server');
