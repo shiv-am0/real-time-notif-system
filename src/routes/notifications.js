@@ -6,6 +6,7 @@ const {
   markNotificationAsRead
 } = require('../controllers/notificationController');
 const authMiddleware = require('../middlewares/authMiddleware');
+const roleMiddleware = require('../middlewares/roleMiddleware');
 
 const router = express.Router();
 
@@ -37,7 +38,7 @@ const router = express.Router();
  *       500:
  *         description: Server error
  */
-router.post('/', authMiddleware, createNotification);
+router.post('/', authMiddleware, roleMiddleware, createNotification);
 
 /**
  * @swagger
@@ -47,9 +48,33 @@ router.post('/', authMiddleware, createNotification);
  *     tags: [Notifications]
  *     security:
  *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: The page number
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: The number of items per page
  *     responses:
  *       200:
  *         description: A list of notifications
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 notifications:
+ *                   type: array
+ *                 totalPages:
+ *                   type: integer
+ *                 currentPage:
+ *                   type: integer
  *       500:
  *         description: Server error
  */
