@@ -1,6 +1,6 @@
 # Real-Time Notification System
 
-A real-time notification system that allows users to receive immediate updates. This system is designed to be scalable, efficient, and easy to integrate into various applications.
+A real-time notification system that allows users to receive immediate updates in real-time. This backend system is designed to be scalable, efficient, and easy to integrate into various applications.
 
 ## Table of Contents
 - [Installation](#installation)
