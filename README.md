@@ -42,10 +42,10 @@ To install and set up the project locally, follow these steps:
 After setting up the project, you can start using the real-time notification system. Here’s a basic example of how to use it:
 
 1. Head over to the following link to view the real-time streamed messages.
-    [https://localhost:3000](https://localhost:3000)
+    [https://localhost:3000](https://localhost:3000) (This link may be different for you as per the values defined in the environemtnt variables)
 
 2. Head over to the following link for using the endpoints interactively.
-    [https://localhost:3000/api-docs](https://localhost:3000/api-docs)
+    [https://localhost:3000/api-docs](https://localhost:3000/api-docs) (The base link may be different for you as per the values defined in the environemtnt variables, but the endpoint *api-docs* wil be same.)
 
 3. The API routes for different usages are as follows:
 
