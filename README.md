@@ -41,11 +41,13 @@ To install and set up the project locally, follow these steps:
 
 After setting up the project, you can start using the real-time notification system. Here’s a basic example of how to use it:
 
-1. Head over to the following link to view the real-time streamed messages.
-    [https://localhost:3000](https://localhost:3000) (This link may be different for you as per the values defined in the environment variables)
+1. **View the real-time streamed messages**:
+    [https://real-time-notif-system.onrender.com](https://real-time-notif-system.onrender.com) 
+    (This link may be different for you as per the values defined in the environment variables)
 
-2. Head over to the following link for using the endpoints interactively.
-    [https://localhost:3000/api-docs](https://localhost:3000/api-docs) (The base link may be different for you as per the values defined in the environment variables, but the endpoint *api-docs* wil be same.)
+2. **Interact with the endpoints**:
+    [https://real-time-notif-system.onrender.com/api-docs](https://real-time-notif-system.onrender.com/api-docs)
+    (The base link may be different for you as per the values defined in the environment variables, but the endpoint *api-docs* wil be same.)
 
 3. The API routes for different usages are as follows:
 
